@@ -12,13 +12,9 @@ import {
     Tab,
     TabPanel,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { ClientsApi } from "../api/ClientsApi";
-import { Client } from "../entities/Client";
 import AvatarComponent from "./AvatarComponent";
 import ClientExplorer from "./ClientExplorer";
 import ItemList from "./ItemList";
-import NewClientForm from "./NewClientForm";
 import OrdersExplorer from "./OrdersExplorer";
 
 const Main = () => {

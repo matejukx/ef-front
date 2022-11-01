@@ -1,12 +1,5 @@
 import {
-    Input,
-    Container,
-    Avatar,
-    Stack,
-    Text,
     Button,
-    AvatarBadge,
-    Heading,
     Modal,
     ModalOverlay,
     ModalContent,
@@ -16,9 +9,6 @@ import {
     ModalCloseButton,
     useDisclosure,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { ClientsApi } from "../api/ClientsApi";
-import { Client } from "../entities/Client";
 import NewClientForm from "./NewClientForm";
 
 const NewClientModal = () => {

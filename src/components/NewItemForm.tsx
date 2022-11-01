@@ -4,31 +4,11 @@ import { useEffect, useState } from "react";
 import {
     Input,
     Container,
-    Avatar,
-    Stack,
-    Text,
     Button,
-    AvatarBadge,
-    Heading,
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    useDisclosure,
+    Heading
 } from "@chakra-ui/react";
 
 const NewItemForm = () => {
-    // return form to add new item to the database
     const [name, setName] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const [price, setPrice] = useState<number>(0);

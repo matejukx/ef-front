@@ -1,22 +1,16 @@
 import {
     Input,
     Container,
-    Avatar,
-    Stack,
-    Text,
     Button,
-    AvatarBadge,
     Heading,
     Switch,
     FormControl,
     FormLabel,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ClientsApi } from "../api/ClientsApi";
-import { Client } from "../entities/Client";
 
 const NewClientForm = () => {
-    // form to create a new client in the database
 
     const [name, setName] = useState<string>("");
     const [address, setAddress] = useState<string>("");

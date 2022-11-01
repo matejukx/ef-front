@@ -1,4 +1,3 @@
-// create Client class
 export interface Client {
     id: number;
     name: string;

@@ -1,35 +1,19 @@
 import {
     Input,
     Container,
-    Avatar,
     Stack,
-    Text,
     Button,
-    AvatarBadge,
-    Tabs,
-    TabList,
-    TabPanels,
-    Tab,
-    TabPanel,
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
-    TableCaption,
-    TableContainer,
-    useToast,
+    TableContainer
 } from "@chakra-ui/react";
 import { RepeatIcon, SmallAddIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { OrdersApi } from "../api/OrderApi";
-import { Client } from "../entities/Client";
-import AvatarComponent from "./AvatarComponent";
-import ClientExplorer from "./ClientExplorer";
-import ItemList from "./ItemList";
-import NewClientForm from "./NewClientForm";
 import { Order, OrderedItem } from "../entities/Order";
 
 const OrdersExplorer = () => {
@@ -71,7 +55,6 @@ const OrdersExplorer = () => {
         }
     };
 
-    // method to sum all items quantities
     const sumItems = (items: OrderedItem[]) => {
         let sum = 0;
         items.forEach((item) => {
@@ -81,7 +64,6 @@ const OrdersExplorer = () => {
     };
     
 
-    // method to sum all the prices of the items in the order
     const sumOrder = (order: Order) => {
         let sum = 0;
         order?.items?.forEach((item : OrderedItem) => {
@@ -90,7 +72,6 @@ const OrdersExplorer = () => {
         return sum;
     };
 
-    // method to get shortened list of item names in the order
     const getItems = (order: Order) => {
         let items = "";
         order?.items?.forEach((item : OrderedItem) => {

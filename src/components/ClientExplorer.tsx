@@ -1,25 +1,14 @@
 import {
     Input,
     Container,
-    Avatar,
     Stack,
-    Text,
-    Button,
-    AvatarBadge,
-    Tabs,
-    TabList,
-    TabPanels,
-    Tab,
-    TabPanel,
+    Button
 } from "@chakra-ui/react";
 import { RepeatIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { ClientsApi } from "../api/ClientsApi";
 import { Client } from "../entities/Client";
-import ItemList from "./ItemList";
-import NewClientForm from "./NewClientForm";
 import NewClientModal from "./NewClientModal";
-import AvatarComponent from "./AvatarComponent";
 
 const ClientExplorer = () => {
     const [filter, setFilter] = useState<string>("");

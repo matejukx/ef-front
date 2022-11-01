@@ -1,4 +1,3 @@
-// component that displays a list of items with a button to add a new item
 import { Item } from "../entities/Item";
 import { ItemsApi } from "../api/ItemsApi";
 import NewItemModal from "./NewItemModal";
@@ -7,24 +6,14 @@ import { RepeatIcon, SmallAddIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import {
     Input,
     Container,
-    Avatar,
     Stack,
-    Text,
     Button,
-    AvatarBadge,
-    Tabs,
-    TabList,
-    TabPanels,
-    Tab,
-    TabPanel,
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
-    TableCaption,
     TableContainer,
     useToast,
     Switch,
