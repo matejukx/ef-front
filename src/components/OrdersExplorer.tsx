@@ -36,7 +36,6 @@ const OrdersExplorer = () => {
 
     const [orders, setOrders] = useState<Order[]>([]);
     const [filteredOrders, setFilteredOrders] = useState<Order[]>([]);
-
     const [filter, setFilter] = useState<string>("");
 
     useEffect(() => {
@@ -72,6 +71,16 @@ const OrdersExplorer = () => {
         }
     };
 
+    // method to sum all items quantities
+    const sumItems = (items: OrderedItem[]) => {
+        let sum = 0;
+        items.forEach((item) => {
+            sum += item.quantity;
+        });
+        return sum;
+    };
+    
+
     // method to sum all the prices of the items in the order
     const sumOrder = (order: Order) => {
         let sum = 0;
@@ -90,6 +99,12 @@ const OrdersExplorer = () => {
         return items.substring(0, items.length - 2);
     };
 
+    const finalize = (id: number) => {
+        OrdersApi.finishOrder(id).then((res) => {
+            refreshOrders();
+        });
+    };
+
     return (
         <Container centerContent >
         <Stack direction="row">
@@ -103,7 +118,7 @@ const OrdersExplorer = () => {
         </Button>
         </Stack>
         <Container centerContent margin="3" bg="whitesmoke">
-        <TableContainer maxWidth="200%" margin={3}>
+        <TableContainer maxWidth="500%" margin={3}>
                 <Table variant="simple">
                     <Thead>
                         <Tr>
@@ -111,7 +126,9 @@ const OrdersExplorer = () => {
                             <Th>Items</Th>
                             <Th>Quantity</Th>
                             <Th>Total Price</Th>
-                            
+                            <Th>Is Internet</Th>
+                            <Th>Is Finished</Th>
+                            <Th>Finish</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
@@ -119,8 +136,15 @@ const OrdersExplorer = () => {
                             <Tr key={order?.id }>
                                 <Td>{order?.client?.name} from {order?.client?.address}</Td>
                                 <Td>{getItems(order)}</Td>
-                                <Td>{order?.items?.length}</Td>
+                                <Td>{sumItems(order.items)}</Td>
                                 <Td>{sumOrder(order)}</Td>
+                                <Td>{order.isInternet.toString()}</Td>
+                                <Td>{order.isFinished.toString()}</Td>
+                                <Td>
+                                <Button onClick={() => finalize(order.id)}>
+                                        <SmallAddIcon />
+                                    </Button>
+                                </Td>
                             </Tr>
                         ))}
                     </Tbody>

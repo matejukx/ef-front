@@ -14,4 +14,9 @@ export class OrdersApi {
     static postOrder(order: CreateOrderResource) {
         return axios.post(this.apiUrl + 'orders', order);
     }
+
+    // finish order
+    static finishOrder(id: number) {
+        return axios.post("https://localhost:7011/" + 'finish/' + id );
+    }
 }

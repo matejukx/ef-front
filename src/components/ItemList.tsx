@@ -27,6 +27,9 @@ import {
     TableCaption,
     TableContainer,
     useToast,
+    Switch,
+    FormControl, 
+    FormLabel
 } from "@chakra-ui/react";
 import { CreateOrderResource, Order } from "../entities/Order";
 import { OrdersApi } from "../api/OrderApi";
@@ -40,6 +43,7 @@ const ItemList = () => {
     const [filter, setFilter] = useState<string>("");
     const [filteredItems, setFilteredItems] = useState<Item[]>([]);
     const [order, setOrder] = useState<CreateOrderResource>({items: [] as Item[]} as CreateOrderResource);
+    const [isInternet, setIsInternet] = useState<boolean>(false);
 
     const toast = useToast();
 
@@ -105,6 +109,7 @@ const ItemList = () => {
     };
 
     const sendOrder = () => {
+        order.isInternet = isInternet;
         OrdersApi.postOrder(order).then((response) => {
             console.log(response);
         });
@@ -136,6 +141,13 @@ const ItemList = () => {
                 <Button onClick={refreshItems}>
                     <RepeatIcon />
                 </Button>
+                <FormControl display="flex" alignItems="center">
+                <FormLabel htmlFor="is-internet" mb="0">
+                    Is order internet?
+                </FormLabel>
+                <Switch onChange={() => setIsInternet(!isInternet)} />
+            </FormControl>
+                
             </Stack>
 
             <TableContainer maxWidth="200%" margin={3}>

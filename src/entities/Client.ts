@@ -3,6 +3,7 @@ export interface Client {
     id: number;
     name: string;
     address: string;
+    ipAddress: string;
 }
 
 export interface CreateClientResource {

@@ -9,6 +9,7 @@ export interface Order {
     isFinished: boolean;
     totalPrice: number;
     totalQuantity: number;
+    isInternet: boolean;
 }
 
 export interface OrderedItem {
@@ -21,6 +22,7 @@ export interface OrderedItem {
 export interface CreateOrderResource {
     clientId: number;
     items: Item[];
+    isInternet: boolean;
 }
 
 export interface InternetOrder extends Order {
